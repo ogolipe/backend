@@ -4,14 +4,33 @@ import cors from "cors"
 
  const app = express ()
 
+ process.env.DB_HOST = "localhost";
+ process.env.DB_USERNAME = "root";
+ process.env.DB_PASSWORD = "123";
+ process.env.DB_DBNAME = "riole";
 
+ const db = mysql.createPool({
+   host: process.env.DB_HOST,
+   user: process.env.DB_USERNAME,
+   password:process.env.DB_PASSWORD,
+   database: process.env.DB_DBNAME,
+   waitForConnections : true,
+   connectionLimit:10,
+   queueLimit: 0
+})
 
- const db = mysql.createConnection({
+db.getConnection((err,conn) => {
+   if(err) console.log(err)
+   console.log("Connected successfully");
+
+})
+
+ /*const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"123",
     database:"riole"
- })//codigo para conexão com o banco de dados
+ })*///codigo para conexão com o banco de dados
  
  app.use(express.json())/*permite enviar qualquer arquivo json usando um 
  client( codigo usado para corrigir erro de fazer post no body do postman)*/
