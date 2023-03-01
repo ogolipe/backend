@@ -6,7 +6,7 @@ import cors from "cors"
 
  process.env.DB_HOST = "localhost";
  process.env.DB_USERNAME = "root";
- process.env.DB_PASSWORD = "123";
+ process.env.DB_PASSWORD = "Q9dLT1gHtN4TCqM0JoOq";
  process.env.DB_DBNAME = "riole";
 
  const db = mysql.createPool({
