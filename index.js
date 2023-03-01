@@ -4,12 +4,12 @@ import cors from "cors"
 
  const app = express ()
 
- 
+
 
  const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"",
+    password:"123",
     database:"riole"
  })//codigo para conexão com o banco de dados
  
@@ -18,7 +18,7 @@ import cors from "cors"
  app.use(cors())//permitir que uma aplicação use a api 
 
  app.get("/", (req, res) => {
-    res.json("hello")
+    res.json("hello MESMO??")
  })
 
  app.get("/eventos", (req, res) => {
